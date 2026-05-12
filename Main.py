@@ -1,55 +1,70 @@
 from Tarefa import Tarefa
+from datetime import datetime
 from ListaDeTarefas import ListaDeTarefas
+import time
 
 def main():
-    sair = False
+    sair: bool = False
+    lista_de_tarefas: ListaDeTarefas = ListaDeTarefas()
+    print("Bem vindo ao sistema de registro de tarefas")
 
     while not sair:
-        print("Bem vindo ao sistema de registro de tarefas")
-        print("Escolha uma das opções a seguir:")
+        print("\nEscolha uma das opções a seguir:")
 
         print("1 - Adicionar nova tarefa\n" \
         "2 - Listar tarefas \n" \
         "3 - Marcar tarefa como concluída \n" \
         "4 - Remover tarefa\n" \
-        "5 - Sair do sistema")
-
-        user_input = input(">")
+        "5 - Sair do sistema\n")
+        user_input: str = input(">")
+        print("\n")
 
         match user_input:
             case "1":
-                nova_tarefa = criar_tarefa()
-                print(ListaDeTarefas.adicionar(nova_tarefa))
-                break
+                nova_tarefa:Tarefa = criar_tarefa()
+                print(lista_de_tarefas.adicionar(nova_tarefa))
+                time.sleep(1)
+                pass
 
             case "2":
-                ListaDeTarefas.listar()
-                break
+                lista_de_tarefas.listar()
+                time.sleep(1)
+                pass
 
             case "3":
                 print("Escolha qual tarefa marcar como concluída")
-                ListaDeTarefas.listar()
-                user_input = input(">")
-                print(ListaDeTarefas.marcar_como_concluída(user_input))
-                break
+                lista_de_tarefas.listar()
+                user_input: int = int(input(">"))
+                print(lista_de_tarefas.marcar_como_concluída(user_input))
+                time.sleep(1)
+                pass
 
             case "4":
                 print("Escolha qual tarefa será removida")
-                ListaDeTarefas.listar()
-                user_input = input(">")
-                print(ListaDeTarefas.remover(user_input))
-                break
+                lista_de_tarefas.listar()
+                user_input: int = int(input(">"))
+                print(lista_de_tarefas.remover(user_input))
+                time.sleep(1)
+                pass
 
             case "5":
                 print("Obrigado por usar o sistema, volte sempre")
                 sair = True
-                break
+                pass
 
             case _:
+                    print("Opção inválida")
                     pass
                 
-def criar_tarefa() -> Tarefa:
-    return Tarefa
+def criar_tarefa():
+    descricao = input("Digite a descrição da tarefa: ")
+    prazo_str = input("Digite o prazo final (dd/mm/aaaa): ")
+    prazo_final = datetime.strptime(prazo_str, "%d/%m/%Y").date()
+    urgencia = int(input("Digite o nível de urgência (1 a 5): "))
+
+    tarefa = Tarefa(descricao, prazo_final, urgencia)
+    return tarefa
 
 
-main()
+if __name__ == "__main__":
+    main()

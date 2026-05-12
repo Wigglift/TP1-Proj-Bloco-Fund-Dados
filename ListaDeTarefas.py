@@ -1,4 +1,5 @@
 from Tarefa import Tarefa
+from Status import Status
 
 class ListaDeTarefas:
     def __init__(self):
@@ -8,22 +9,22 @@ class ListaDeTarefas:
         tarefa.id = len(self.lista)
         self.lista.append(tarefa)
 
-        return f"Tarefa n°{tarefa.id} adicionada com sucesso"
+        return f"\nTarefa n°{tarefa.id} adicionada com sucesso\n"
 
     def listar(self) -> None:
         for i in range(len(self.lista)):
             print(self.lista[i])
 
     def marcar_como_concluída(self, id: int) -> str:
-        self.lista[id].concluida = True
+        self.lista[id].status = Status.CONCLUIDO
 
-        return "Tarefa marcada como concluída"
+        return f"\nTarefa n°{id} marcada como concluída\n"
 
     def remover(self, id: int) -> str:
         self.lista.pop(id)
         self.__atualizar_id()
 
-        return "Tarefa removida com sucesso"
+        return f"\nTarefa n°{id} removida com sucesso\n"
         
     def __atualizar_id(self) -> None:
         for i in range(len(self.lista)):

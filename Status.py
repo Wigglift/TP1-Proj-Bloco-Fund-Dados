@@ -2,5 +2,4 @@ from enum import Enum
 
 class Status(Enum):
     PENDENTE = 1
-    EM_ANDAMENTO = 2
-    CONCLUIDO = 3
+    CONCLUIDO = 2

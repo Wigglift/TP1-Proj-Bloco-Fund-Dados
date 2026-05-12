@@ -2,8 +2,8 @@ from datetime import date
 from Status import Status
 
 class Tarefa():
-    def __init__(self, id: int, descricao: str, prazo_final: date, urgencia: int):
-        self.id = id
+    def __init__(self, descricao: str, prazo_final: date, urgencia: int):
+        self.id: int
         self.descricao = descricao
         self.data_de_criacao = date.today()
         self.status = Status.PENDENTE
