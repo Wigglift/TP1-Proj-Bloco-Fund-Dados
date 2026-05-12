@@ -1,7 +1,10 @@
 from datetime import date
 from Status import Status
 
+# Classe que representa uma tarefa, com os atributos necessários para a criação e gerenciamento de uma tarefa
 class Tarefa():
+
+    # Construtor da classe Tarefa, que recebe a descrição, prazo final e urgência da tarefa, e inicializa os outros atributos como data de criação e status
     def __init__(self, descricao: str, prazo_final: date, urgencia: int):
         self.id: int
         self.descricao = descricao
@@ -9,7 +12,7 @@ class Tarefa():
         self.status = Status.PENDENTE
         self.prazo_final = prazo_final
         self.urgencia = urgencia
-
+    # Método para representar a tarefa como uma string, facilitando a visualização das informações da tarefa
     def __str__(self):
         response = (
             f"Tarefa {self.id}\n"

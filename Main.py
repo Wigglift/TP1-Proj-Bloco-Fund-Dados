@@ -3,6 +3,7 @@ from datetime import datetime
 from ListaDeTarefas import ListaDeTarefas
 import time
 
+# Sistema de registro de tarefas, criação da lista e variável de controle de looping
 def main():
     sair: bool = False
     lista_de_tarefas: ListaDeTarefas = ListaDeTarefas()
@@ -19,6 +20,7 @@ def main():
         user_input: str = input(">")
         print("\n")
 
+        # Estrutura de controle de fluxo para as opções do menu
         match user_input:
             case "1":
                 nova_tarefa:Tarefa = criar_tarefa()
@@ -56,6 +58,7 @@ def main():
                     print("Opção inválida")
                     pass
                 
+#função auxiliar para criar uma tarefa, solicitando os dados necessários para a criação da tarefa e retornando a tarefa criada
 def criar_tarefa():
     descricao = input("Digite a descrição da tarefa: ")
     prazo_str = input("Digite o prazo final (dd/mm/aaaa): ")
@@ -65,6 +68,6 @@ def criar_tarefa():
     tarefa = Tarefa(descricao, prazo_final, urgencia)
     return tarefa
 
-
+# Ponto de entrada do programa
 if __name__ == "__main__":
     main()
