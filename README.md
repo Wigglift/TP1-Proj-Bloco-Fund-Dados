@@ -57,11 +57,3 @@ Remove uma tarefa da lista com base no seu ID.
 Encerra a execução do programa.
 
 ---
-
-## 🖥️ Como executar
-
-1. Certifique-se de ter o Python instalado (versão 3.10+ recomendada)
-2. Clone o repositório:
-
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git

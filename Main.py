@@ -3,8 +3,13 @@ from datetime import datetime
 from ListaDeTarefas import ListaDeTarefas
 import time
 
-# Sistema de registro de tarefas, criação da lista e variável de controle de looping
 def main():
+    """
+    Função principal do programa
+    apresenta um menu para o usuário escolher as opções de gerenciamento de tarefas,
+    utilizando a classe ListaDeTarefas para armazenar e manipular as tarefas criadas pelo usuário
+    """
+    
     sair: bool = False
     lista_de_tarefas: ListaDeTarefas = ListaDeTarefas()
     print("Bem vindo ao sistema de registro de tarefas")
@@ -58,14 +63,22 @@ def main():
                     print("Opção inválida")
                     pass
                 
-#função auxiliar para criar uma tarefa, solicitando os dados necessários para a criação da tarefa e retornando a tarefa criada
 def criar_tarefa():
+    """
+    Função auxiliar para criar uma tarefa, solicitando os dados necessários para a criação da tarefa
+    retornando a tarefa criada
+    Parâmetros:
+        None
+    Retorno:
+        tarefa (Tarefa): A tarefa criada a partir dos dados fornecidos pelo usuário
+    """
     descricao = input("Digite a descrição da tarefa: ")
     prazo_str = input("Digite o prazo final (dd/mm/aaaa): ")
     prazo_final = datetime.strptime(prazo_str, "%d/%m/%Y").date()
     urgencia = int(input("Digite o nível de urgência (1 a 5): "))
 
     tarefa = Tarefa(descricao, prazo_final, urgencia)
+
     return tarefa
 
 # Ponto de entrada do programa
