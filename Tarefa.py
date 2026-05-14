@@ -14,19 +14,19 @@ class Tarefa():
         urgencia (int): nível de urgência da tarefa
     """
 
-    def __init__(self, descricao: str, prazo_final: date, urgencia: int):
+    def __init__(self, descricao: str, prazo_final: date, urgencia: int) -> None:
         """
         Construtor da classe Tarefa, que inicializa os atributos da tarefa com os
         valores fornecidos pelo usuário e atribui um ID único para cada tarefa
         """
         self.id: int
-        self.descricao = descricao
-        self.data_de_criacao = date.today()
-        self.status = Status.PENDENTE
-        self.prazo_final = prazo_final
-        self.urgencia = urgencia
+        self.descricao: str = descricao
+        self.data_de_criacao: date = date.today()
+        self.status: Status = Status.PENDENTE
+        self.prazo_final: date = prazo_final
+        self.urgencia: int = urgencia
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Método para representar a tarefa como uma string,
         formatando os atributos da tarefa de forma legível para o usuário

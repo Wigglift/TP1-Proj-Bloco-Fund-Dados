@@ -1,15 +1,15 @@
 from Tarefa import Tarefa
-from datetime import datetime
+from datetime import datetime, date
 from ListaDeTarefas import ListaDeTarefas
 import time
 
-def main():
+def main() -> None:
     """
     Função principal do programa
     apresenta um menu para o usuário escolher as opções de gerenciamento de tarefas,
     utilizando a classe ListaDeTarefas para armazenar e manipular as tarefas criadas pelo usuário
     """
-    
+
     sair: bool = False
     lista_de_tarefas: ListaDeTarefas = ListaDeTarefas()
     print("Bem vindo ao sistema de registro de tarefas")
@@ -28,7 +28,7 @@ def main():
         # Estrutura de controle de fluxo para as opções do menu
         match user_input:
             case "1":
-                nova_tarefa:Tarefa = criar_tarefa()
+                nova_tarefa: Tarefa = criar_tarefa()
                 print(lista_de_tarefas.adicionar(nova_tarefa))
                 time.sleep(1)
                 pass
@@ -63,7 +63,7 @@ def main():
                     print("Opção inválida")
                     pass
                 
-def criar_tarefa():
+def criar_tarefa() -> Tarefa:
     """
     Função auxiliar para criar uma tarefa, solicitando os dados necessários para a criação da tarefa
     retornando a tarefa criada
@@ -72,12 +72,12 @@ def criar_tarefa():
     Retorno:
         tarefa (Tarefa): A tarefa criada a partir dos dados fornecidos pelo usuário
     """
-    descricao = input("Digite a descrição da tarefa: ")
-    prazo_str = input("Digite o prazo final (dd/mm/aaaa): ")
-    prazo_final = datetime.strptime(prazo_str, "%d/%m/%Y").date()
-    urgencia = int(input("Digite o nível de urgência (1 a 5): "))
+    descricao: str = input("Digite a descrição da tarefa: ")
+    prazo_str: str = input("Digite o prazo final (dd/mm/aaaa): ")
+    prazo_final: date = datetime.strptime(prazo_str, "%d/%m/%Y").date()
+    urgencia: int = int(input("Digite o nível de urgência (1 a 5): "))
 
-    tarefa = Tarefa(descricao, prazo_final, urgencia)
+    tarefa: Tarefa = Tarefa(descricao, prazo_final, urgencia)
 
     return tarefa
 

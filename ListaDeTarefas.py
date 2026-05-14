@@ -9,7 +9,7 @@ Atributos:
 """
 class ListaDeTarefas:
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Construtor da classe ListaDeTarefas, que inicializa a lista de tarefas como uma lista vazia
         """
